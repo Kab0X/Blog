@@ -16,6 +16,13 @@ module.exports = {
         'width': 'width',
         'height': 'height',
       },
+      borderWidth: {
+        '3': '3px',
+      },
+      width: {
+        '0.5' : '3px',
+        '34': '136px',
+      },
     },
   },
   plugins: [],
