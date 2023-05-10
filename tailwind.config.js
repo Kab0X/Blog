@@ -20,8 +20,15 @@ module.exports = {
         '3': '3px',
       },
       width: {
+        '0.25': '2px',
         '0.5' : '3px',
         '34': '136px',
+      },
+      height: {
+        '76': '315px',
+      },
+      fontSize: {
+        'md': '15px',
       },
     },
   },

@@ -1,23 +1,29 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/router';
-import BlogPageId from '../page'
-import { useEffect, useState } from 'react';
-import { componentsData } from '../../../components/HomePage/HomeBlogs';
+import { componentsData } from "../../../components/HomePage/HomeBlogs";
+import Navbar from "@/components/HomePage/HomeNavbar/Navbar";
+import BlogText from "@/components/BlogPage/BlogText";
+import BlogContent from "@/components/BlogPage/BlogContent";
 
-export default function BlogPage({params}: {params: {id: string}}) {
-  console.log(componentsData)
-  console.log(params)
+export default function BlogPage({ params }: { params: { id: string } }) {
+    console.log(componentsData);
+    console.log(params);
 
-  const blogData = componentsData.find((blog) => {
-    return blog.id === params.id
-  })
+    const blogData = componentsData.find((blog) => {
+        return blog.id === params.id;
+    });
 
-  console.log(blogData);
+    console.log(blogData);
 
-  return (
-    <main className="w-full h-screen bg-[#fffff0]">
-        {blogData && <BlogPageId title={blogData.title} content={blogData.content} />}
-    </main>
-  )
+    return (
+        <main className="h-screen w-full bg-[#fffff0]">
+            {blogData && (
+                <>
+                    <Navbar />
+                    <BlogText title={blogData.title} />
+                    <BlogContent content={blogData.content} />
+                </>
+            )}
+        </main>
+    );
 }

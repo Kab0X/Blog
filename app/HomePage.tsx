@@ -4,14 +4,14 @@ import HomeNavbar from "../components/HomePage/HomeNavbar/Navbar";
 import HomeSort from "../components/HomePage/HomeSort";
 
 export default function HomePage() {
-  return (
-    <div className="w-full h-screen bg-[#fffff0]">
-      <HomeNavbar />
-      <div className="flex justify-between px-20 mt-10 items-end">
-        <HomeText />
-        <HomeSort />
-      </div>
-      <HomeBlogs />
-    </div>
-  );
+    return (
+        <div className="h-screen w-full bg-[#fffff0]">
+            <HomeNavbar />
+            <div className="mt-6 flex items-end justify-between px-20">
+                <HomeText />
+                <HomeSort />
+            </div>
+            <HomeBlogs />
+        </div>
+    );
 }
