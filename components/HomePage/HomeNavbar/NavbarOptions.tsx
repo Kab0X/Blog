@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function NavbarOptions() {
     const [isFocusedSearch, setFocusedSearch] = useState(false);
     const [isFocusedSettings, setFocusedSettings] = useState(false);
+    const divRef = useRef<HTMLDivElement>(null);
     let timeoutSearch;
     let timeoutSettings;
 
@@ -20,8 +21,9 @@ export default function NavbarOptions() {
     };
 
     const handleMouseSettings = (event: number) => {
-        setFocusedSettings(false);
-        timeoutSearch = setTimeout(() => {
+        if (!isFocusedSettings) setFocusedSettings(false);
+        if (divRef.current) divRef.current.click();
+        timeoutSettings = setTimeout(() => {
             if (event === 50) {
                 return setFocusedSettings(true);
             }
@@ -62,6 +64,7 @@ export default function NavbarOptions() {
                 className="relative px-14 py-8"
             >
                 <div
+                    ref={divRef}
                     onMouseEnter={() => handleMouseSettings(50)}
                     className={`flex transform cursor-pointer flex-col gap-3 px-2 transition duration-200 ${
                         isFocusedSettings ? "-rotate-90" : "rotate-0"
